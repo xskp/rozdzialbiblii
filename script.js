@@ -302,25 +302,22 @@ OTWIERANIE ROZDZIAŁU
 */
 
 function openChapterOnDeon(chapter) {
-    // Tworzymy zapytanie do Google
-    const searchQuery = `${chapter.name} ${chapter.chapter} Biblia Tysiąclecia`;
-    const googleUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
+    // Bezpośredni link do wyszukiwania na biblia.deon.pl
+    const searchUrl = `https://biblia.deon.pl/szukaj.php?szukaj=${encodeURIComponent(chapter.name)}`;
     
     // Otwórz w nowej karcie
-    window.open(googleUrl, '_blank');
+    window.open(searchUrl, '_blank');
     
     // Pokaż informację
     chapterTextTitle.textContent = chapterLabel(chapter);
     chapterTextContent.innerHTML = `
         <div style="text-align: center; padding: 30px; color: #766f64;">
-            <p>📖 Otworzono wyszukiwanie tekstu w nowej karcie.</p>
-            <p style="font-size: 14px;">Znajdziesz tam rozdział na stronie biblia.deon.pl</p>
+            <p>📖 Otworzono wyszukiwanie na biblia.deon.pl</p>
+            <p style="font-size: 14px;">Znajdź rozdział ${chapter.chapter}</p>
             <p style="font-size: 14px; margin-top: 15px;">
-                Możesz też samodzielnie poszukać na:
+                Księga: <strong>${chapter.name}</strong><br>
+                Rozdział: <strong>${chapter.chapter}</strong>
             </p>
-            <a href="https://biblia.deon.pl" target="_blank" style="color: #7d2020; font-size: 14px;">
-                biblia.deon.pl
-            </a>
         </div>
     `;
     chapterTextDiv.classList.remove("hidden");
