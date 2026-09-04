@@ -295,29 +295,36 @@ function finish() {
 ==================================================
 OTWIERANIE ROZDZIAŁU NA BIBLIA.DEON.PL
 ==================================================
-/*
-==================================================
-OTWIERANIE ROZDZIAŁU
-==================================================
 */
 
 function openChapterOnDeon(chapter) {
-    // Bezpośredni link do wyszukiwania na biblia.deon.pl
-    const searchUrl = `https://biblia.deon.pl/szukaj.php?szukaj=${encodeURIComponent(chapter.name)}`;
+    // Używamy "Szczęśliwego trafu" Google - od razu otwiera pierwszy wynik
+    const query = `${chapter.name} ${chapter.chapter} biblia.deon.pl`;
+    const luckyUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}&btnI=Szczęśliwy+traf`;
     
-    // Otwórz w nowej karcie
-    window.open(searchUrl, '_blank');
+    // Otwórz pierwszy wynik od razu
+    window.open(luckyUrl, '_blank');
     
     // Pokaż informację
     chapterTextTitle.textContent = chapterLabel(chapter);
     chapterTextContent.innerHTML = `
         <div style="text-align: center; padding: 30px; color: #766f64;">
-            <p>📖 Otworzono wyszukiwanie na biblia.deon.pl</p>
-            <p style="font-size: 14px;">Znajdź rozdział ${chapter.chapter}</p>
-            <p style="font-size: 14px; margin-top: 15px;">
-                Księga: <strong>${chapter.name}</strong><br>
-                Rozdział: <strong>${chapter.chapter}</strong>
+            <p>📖 Otwieranie tekstu...</p>
+            <p style="font-size: 18px; margin: 15px 0; font-family: Georgia, serif;">
+                ${chapterLabel(chapter)}
             </p>
+            <p style="font-size: 14px;">
+                Tekst powinien otworzyć się automatycznie na biblia.deon.pl
+            </p>
+            <p style="font-size: 14px; margin-top: 15px;">
+                Jeśli nic się nie otworzyło, kliknij:
+            </p>
+            <a href="https://biblia.deon.pl" target="_blank" 
+               style="display: inline-block; margin-top: 10px; padding: 10px 20px;
+                      background: #7d2020; color: white; text-decoration: none;
+                      border-radius: 8px;">
+                Otwórz biblia.deon.pl ręcznie
+            </a>
         </div>
     `;
     chapterTextDiv.classList.remove("hidden");
