@@ -466,6 +466,43 @@ const books = [
 
 /*
 ==================================================
+PRZYKŁADOWE TEKSTY ROZDZIAŁÓW (DO TESTOWANIA)
+==================================================
+*/
+
+const sampleTexts = {
+    "Księga Rodzaju": {
+        1: [
+            "Na początku Bóg stworzył niebo i ziemię.",
+            "A ziemia była pusta i próżna, i ciemności były nad głębokością, a Duch Boży unaszał się nad wodami.",
+            "I rzekł Bóg: Niech się stanie światłość. I stała się światłość.",
+            "I widział Bóg światłość, że była dobra, i oddzielił światłość od ciemności.",
+            "I nazwał Bóg światłość dniem, a ciemność nocą. I był wieczór i poranek, dzień pierwszy."
+        ]
+    },
+    "Ewangelia Jana": {
+        1: [
+            "Na początku było Słowo, a Słowo było u Boga, a Bogiem było Słowo.",
+            "To było na początku u Boga.",
+            "Wszystko przez Nie się stało, a bez Niego nic się nie stało, co się stało.",
+            "W Nim było życie, a życie było światłością ludzi.",
+            "A światłość w ciemnościach świeci, a ciemności jej nie ogarnęły."
+        ]
+    },
+    "Księga Psalmów": {
+        23: [
+            "Pan jest pasterzem moim, niczego mi nie braknie.",
+            "Na miejscu zielonym tam mię posadził, nad wodą posilenia wychował mię.",
+            "Duszę moją nawrócił, prowadził mię ścieżkami sprawiedliwości dla imienia swego.",
+            "Bo choćbym chodził w pośród cienia śmierci, nie będę się bał złego, bo ty jesteś ze mną.",
+            "Laska twoja i kij twój, te mię pocieszyły."
+        ]
+    }
+};
+
+
+/*
+==================================================
 ZMIENNE
 ==================================================
 */
@@ -485,23 +522,16 @@ POBIERANIE ELEMENTÓW STRONY
 ==================================================
 */
 
-const chapterElement =
-    document.getElementById("chapter");
-
-const statusElement =
-    document.getElementById("status");
-
-const startButton =
-    document.getElementById("start");
-
-const stopButton =
-    document.getElementById("stop");
-
-const resultBox =
-    document.getElementById("result");
-
-const resultName =
-    document.getElementById("resultName");
+const chapterElement = document.getElementById("chapter");
+const statusElement = document.getElementById("status");
+const startButton = document.getElementById("start");
+const stopButton = document.getElementById("stop");
+const resultBox = document.getElementById("result");
+const resultName = document.getElementById("resultName");
+const chapterTextDiv = document.getElementById("chapterText");
+const chapterTextTitle = document.getElementById("chapterTextTitle");
+const chapterTextContent = document.getElementById("chapterTextContent");
+const closeChapterButton = document.getElementById("closeChapter");
 
 
 /*
@@ -511,50 +541,25 @@ TWORZENIE LISTY WSZYSTKICH ROZDZIAŁÓW
 */
 
 function createPool() {
-
     let selectedBooks;
 
-
     if (selectedTestament === "ALL") {
-
         selectedBooks = books;
-
     } else {
-
-        selectedBooks =
-            books.filter(
-                book =>
-                    book.testament === selectedTestament
-            );
-
+        selectedBooks = books.filter(book => book.testament === selectedTestament);
     }
-
 
     pool = [];
 
-
     selectedBooks.forEach(book => {
-
-        for (
-            let chapter = 1;
-            chapter <= book.chapters;
-            chapter++
-        ) {
-
+        for (let chapter = 1; chapter <= book.chapters; chapter++) {
             pool.push({
-
                 name: book.name,
-
                 chapter: chapter,
-
                 testament: book.testament
-
             });
-
         }
-
     });
-
 }
 
 
@@ -565,14 +570,8 @@ LOSOWANIE JEDNEGO ROZDZIAŁU
 */
 
 function randomChapter() {
-
-    const randomIndex =
-        Math.floor(
-            Math.random() * pool.length
-        );
-
+    const randomIndex = Math.floor(Math.random() * pool.length);
     return pool[randomIndex];
-
 }
 
 
@@ -583,13 +582,7 @@ FORMATOWANIE NAZWY
 */
 
 function chapterLabel(chapter) {
-
-    return (
-        chapter.name +
-        " — rozdział " +
-        chapter.chapter
-    );
-
+    return chapter.name + " — rozdział " + chapter.chapter;
 }
 
 
@@ -599,79 +592,37 @@ WYBÓR TESTAMENTU
 ==================================================
 */
 
-const choiceButtons =
-    document.querySelectorAll(".choice");
-
+const choiceButtons = document.querySelectorAll(".choice");
 
 choiceButtons.forEach(button => {
-
-    button.addEventListener(
-        "click",
-        function() {
-
-            if (timer !== null) {
-                return;
-            }
-
-
-            choiceButtons.forEach(
-                otherButton => {
-
-                    otherButton.classList.remove(
-                        "active"
-                    );
-
-                }
-            );
-
-
-            this.classList.add("active");
-
-
-            selectedTestament =
-                this.dataset.testament;
-
-
-            createPool();
-
-
-            resultBox.classList.add(
-                "hidden"
-            );
-
-
-            statusElement.textContent =
-                "ZAKRES WYBRANY";
-
-
-            if (
-                selectedTestament === "ALL"
-            ) {
-
-                chapterElement.textContent =
-                    "Cała Biblia";
-
-            }
-
-            else if (
-                selectedTestament === "ST"
-            ) {
-
-                chapterElement.textContent =
-                    "Stary Testament";
-
-            }
-
-            else {
-
-                chapterElement.textContent =
-                    "Nowy Testament";
-
-            }
-
+    button.addEventListener("click", function() {
+        if (timer !== null) {
+            return;
         }
-    );
 
+        choiceButtons.forEach(otherButton => {
+            otherButton.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
+        selectedTestament = this.dataset.testament;
+
+        createPool();
+
+        resultBox.classList.add("hidden");
+        chapterTextDiv.classList.add("hidden");
+
+        statusElement.textContent = "ZAKRES WYBRANY";
+
+        if (selectedTestament === "ALL") {
+            chapterElement.textContent = "Cała Biblia";
+        } else if (selectedTestament === "ST") {
+            chapterElement.textContent = "Stary Testament";
+        } else {
+            chapterElement.textContent = "Nowy Testament";
+        }
+    });
 });
 
 
@@ -681,89 +632,41 @@ START LOSOWANIA
 ==================================================
 */
 
-startButton.addEventListener(
-    "click",
-    function() {
+startButton.addEventListener("click", function() {
+    createPool();
 
-        createPool();
-
-
-        if (pool.length === 0) {
-
-            return;
-
-        }
-
-
-        resultBox.classList.add(
-            "hidden"
-        );
-
-
-        startButton.disabled = true;
-
-        stopButton.disabled = false;
-
-
-        statusElement.textContent =
-            "LOSOWANIE…";
-
-
-        let delay = 50;
-
-        let elapsed = 0;
-
-
-        function animation() {
-
-            currentChapter =
-                randomChapter();
-
-
-            chapterElement.textContent =
-                chapterLabel(
-                    currentChapter
-                );
-
-
-            elapsed += delay;
-
-
-            /*
-            Początkowo bardzo szybko,
-            później coraz wolniej.
-            */
-
-            if (elapsed < 4000) {
-
-                delay =
-                    Math.min(
-                        250,
-                        delay * 1.08
-                    );
-
-
-                timer =
-                    setTimeout(
-                        animation,
-                        delay
-                    );
-
-            }
-
-            else {
-
-                finish();
-
-            }
-
-        }
-
-
-        animation();
-
+    if (pool.length === 0) {
+        return;
     }
-);
+
+    resultBox.classList.add("hidden");
+    chapterTextDiv.classList.add("hidden");
+
+    startButton.disabled = true;
+    stopButton.disabled = false;
+
+    statusElement.textContent = "LOSOWANIE…";
+
+    let delay = 50;
+    let elapsed = 0;
+
+    function animation() {
+        currentChapter = randomChapter();
+
+        chapterElement.textContent = chapterLabel(currentChapter);
+
+        elapsed += delay;
+
+        if (elapsed < 4000) {
+            delay = Math.min(250, delay * 1.08);
+            timer = setTimeout(animation, delay);
+        } else {
+            finish();
+        }
+    }
+
+    animation();
+});
 
 
 /*
@@ -772,14 +675,9 @@ STOP
 ==================================================
 */
 
-stopButton.addEventListener(
-    "click",
-    function() {
-
-        finish();
-
-    }
-);
+stopButton.addEventListener("click", function() {
+    finish();
+});
 
 
 /*
@@ -789,50 +687,100 @@ ZAKOŃCZENIE LOSOWANIA
 */
 
 function finish() {
-
     if (timer !== null) {
-
         clearTimeout(timer);
-
         timer = null;
-
     }
-
 
     if (currentChapter === null) {
-
-        currentChapter =
-            randomChapter();
-
+        currentChapter = randomChapter();
     }
 
+    chapterElement.textContent = chapterLabel(currentChapter);
+    statusElement.textContent = "WYLOSOWANO";
+    resultName.textContent = chapterLabel(currentChapter);
+    resultBox.classList.remove("hidden");
 
-    chapterElement.textContent =
-        chapterLabel(
-            currentChapter
-        );
+    // Dodaj przycisk "Przeczytaj rozdział"
+    const oldButton = document.getElementById("readChapter");
+    if (oldButton) {
+        oldButton.remove();
+    }
 
+    const readButton = document.createElement("button");
+    readButton.id = "readChapter";
+    readButton.className = "read-button";
+    readButton.textContent = "📖 Przeczytaj rozdział";
+    readButton.addEventListener("click", function() {
+        displayChapterText(currentChapter);
+    });
 
-    statusElement.textContent =
-        "WYLOSOWANO";
-
-
-    resultName.textContent =
-        chapterLabel(
-            currentChapter
-        );
-
-
-    resultBox.classList.remove(
-        "hidden"
-    );
-
+    resultBox.appendChild(readButton);
 
     startButton.disabled = false;
-
     stopButton.disabled = true;
-
 }
+
+
+/*
+==================================================
+WYŚWIETLANIE TEKSTU ROZDZIAŁU
+==================================================
+*/
+
+function displayChapterText(chapter) {
+    let verses = null;
+
+    // Sprawdź czy mamy przykładowy tekst
+    if (sampleTexts[chapter.name] && sampleTexts[chapter.name][chapter.chapter]) {
+        verses = sampleTexts[chapter.name][chapter.chapter];
+    }
+
+    if (!verses) {
+        chapterTextTitle.textContent = chapterLabel(chapter);
+        chapterTextContent.innerHTML = `
+            <div style="text-align: center; padding: 20px; color: #766f64;">
+                <p>Przepraszamy, pełny tekst tego rozdziału nie jest jeszcze dostępny.</p>
+                <p style="font-size: 14px;">Pracujemy nad dodaniem wszystkich tekstów.</p>
+                <p style="font-size: 14px;">Na razie możesz przetestować:</p>
+                <p style="font-size: 14px; margin-top: 10px;">
+                    • Księga Rodzaju, rozdział 1<br>
+                    • Ewangelia Jana, rozdział 1<br>
+                    • Księga Psalmów, rozdział 23
+                </p>
+            </div>
+        `;
+        chapterTextDiv.classList.remove("hidden");
+        chapterTextDiv.scrollIntoView({ behavior: "smooth" });
+        return;
+    }
+
+    chapterTextTitle.textContent = chapterLabel(chapter);
+
+    const versesHTML = verses.map((verse, index) => {
+        return `
+            <div class="verse">
+                <span class="verse-number">${index + 1}</span>
+                <span class="verse-text">${verse}</span>
+            </div>
+        `;
+    }).join("");
+
+    chapterTextContent.innerHTML = versesHTML;
+    chapterTextDiv.classList.remove("hidden");
+    chapterTextDiv.scrollIntoView({ behavior: "smooth" });
+}
+
+
+/*
+==================================================
+ZAMYKANIE TEKSTU ROZDZIAŁU
+==================================================
+*/
+
+closeChapterButton.addEventListener("click", function() {
+    chapterTextDiv.classList.add("hidden");
+});
 
 
 /*
