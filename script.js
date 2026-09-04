@@ -295,27 +295,31 @@ function finish() {
 ==================================================
 OTWIERANIE ROZDZIAŁU NA BIBLIA.DEON.PL
 ==================================================
+/*
+==================================================
+OTWIERANIE ROZDZIAŁU
+==================================================
 */
 
 function openChapterOnDeon(chapter) {
-    // Link do Biblii Tysiąclecia na deon.pl
-    // Format: https://biblia.deon.pl/rozdzial.php?id={id_ksiegi}&rozdzial={numer}
-    const url = `https://biblia.deon.pl/rozdzial.php?id=${chapter.id}&rozdzial=${chapter.chapter}`;
+    // Tworzymy zapytanie do Google
+    const searchQuery = `${chapter.name} ${chapter.chapter} Biblia Tysiąclecia`;
+    const googleUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
     
     // Otwórz w nowej karcie
-    window.open(url, '_blank');
+    window.open(googleUrl, '_blank');
     
     // Pokaż informację
     chapterTextTitle.textContent = chapterLabel(chapter);
     chapterTextContent.innerHTML = `
         <div style="text-align: center; padding: 30px; color: #766f64;">
-            <p>📖 Otworzono tekst w nowej karcie na stronie biblia.deon.pl</p>
-            <p style="font-size: 14px;">Biblia Tysiąclecia - wydanie katolickie</p>
+            <p>📖 Otworzono wyszukiwanie tekstu w nowej karcie.</p>
+            <p style="font-size: 14px;">Znajdziesz tam rozdział na stronie biblia.deon.pl</p>
             <p style="font-size: 14px; margin-top: 15px;">
-                Jeśli strona się nie otworzyła, kliknij poniższy link:
+                Możesz też samodzielnie poszukać na:
             </p>
-            <a href="${url}" target="_blank" style="color: #7d2020; font-size: 14px; word-break: break-all;">
-                ${url}
+            <a href="https://biblia.deon.pl" target="_blank" style="color: #7d2020; font-size: 14px;">
+                biblia.deon.pl
             </a>
         </div>
     `;
