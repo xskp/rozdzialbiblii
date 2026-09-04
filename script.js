@@ -11,79 +11,79 @@ LISTA KSIĄG
 */
 
 const books = [
-    { name: "Księga Rodzaju", testament: "ST", chapters: 50, api: "genesis" },
-    { name: "Księga Wyjścia", testament: "ST", chapters: 40, api: "exodus" },
-    { name: "Księga Kapłańska", testament: "ST", chapters: 27, api: "leviticus" },
-    { name: "Księga Liczb", testament: "ST", chapters: 36, api: "numbers" },
-    { name: "Księga Powtórzonego Prawa", testament: "ST", chapters: 34, api: "deuteronomy" },
-    { name: "Księga Jozuego", testament: "ST", chapters: 24, api: "joshua" },
-    { name: "Księga Sędziów", testament: "ST", chapters: 21, api: "judges" },
-    { name: "Księga Rut", testament: "ST", chapters: 4, api: "ruth" },
-    { name: "1 Księga Samuela", testament: "ST", chapters: 31, api: "1samuel" },
-    { name: "2 Księga Samuela", testament: "ST", chapters: 24, api: "2samuel" },
-    { name: "1 Księga Królewska", testament: "ST", chapters: 22, api: "1kings" },
-    { name: "2 Księga Królewska", testament: "ST", chapters: 25, api: "2kings" },
-    { name: "1 Księga Kronik", testament: "ST", chapters: 29, api: "1chronicles" },
-    { name: "2 Księga Kronik", testament: "ST", chapters: 36, api: "2chronicles" },
-    { name: "Księga Ezdrasza", testament: "ST", chapters: 10, api: "ezra" },
-    { name: "Księga Nehemiasza", testament: "ST", chapters: 13, api: "nehemiah" },
-    { name: "Księga Tobiasza", testament: "ST", chapters: 14, api: "tobit" },
-    { name: "Księga Judyty", testament: "ST", chapters: 16, api: "judith" },
-    { name: "Księga Estery", testament: "ST", chapters: 16, api: "esther" },
-    { name: "1 Księga Machabejska", testament: "ST", chapters: 16, api: "1maccabees" },
-    { name: "2 Księga Machabejska", testament: "ST", chapters: 15, api: "2maccabees" },
-    { name: "Księga Hioba", testament: "ST", chapters: 42, api: "job" },
-    { name: "Księga Psalmów", testament: "ST", chapters: 150, api: "psalms" },
-    { name: "Księga Przysłów", testament: "ST", chapters: 31, api: "proverbs" },
-    { name: "Księga Koheleta", testament: "ST", chapters: 12, api: "ecclesiastes" },
-    { name: "Pieśń nad Pieśniami", testament: "ST", chapters: 8, api: "songofsongs" },
-    { name: "Księga Mądrości", testament: "ST", chapters: 19, api: "wisdom" },
-    { name: "Mądrość Syracha", testament: "ST", chapters: 51, api: "sirach" },
-    { name: "Księga Izajasza", testament: "ST", chapters: 66, api: "isaiah" },
-    { name: "Księga Jeremiasza", testament: "ST", chapters: 52, api: "jeremiah" },
-    { name: "Lamentacje Jeremiasza", testament: "ST", chapters: 5, api: "lamentations" },
-    { name: "Księga Barucha", testament: "ST", chapters: 6, api: "baruch" },
-    { name: "Księga Ezechiela", testament: "ST", chapters: 48, api: "ezekiel" },
-    { name: "Księga Daniela", testament: "ST", chapters: 14, api: "daniel" },
-    { name: "Księga Ozeasza", testament: "ST", chapters: 14, api: "hosea" },
-    { name: "Księga Joela", testament: "ST", chapters: 4, api: "joel" },
-    { name: "Księga Amosa", testament: "ST", chapters: 9, api: "amos" },
-    { name: "Księga Abdiasza", testament: "ST", chapters: 1, api: "obadiah" },
-    { name: "Księga Jonasza", testament: "ST", chapters: 4, api: "jonah" },
-    { name: "Księga Micheasza", testament: "ST", chapters: 7, api: "micah" },
-    { name: "Księga Nahuma", testament: "ST", chapters: 3, api: "nahum" },
-    { name: "Księga Habakuka", testament: "ST", chapters: 3, api: "habakkuk" },
-    { name: "Księga Sofoniasza", testament: "ST", chapters: 3, api: "zephaniah" },
-    { name: "Księga Aggeusza", testament: "ST", chapters: 2, api: "haggai" },
-    { name: "Księga Zachariasza", testament: "ST", chapters: 14, api: "zechariah" },
-    { name: "Księga Malachiasza", testament: "ST", chapters: 3, api: "malachi" },
-    { name: "Ewangelia Mateusza", testament: "NT", chapters: 28, api: "matthew" },
-    { name: "Ewangelia Marka", testament: "NT", chapters: 16, api: "mark" },
-    { name: "Ewangelia Łukasza", testament: "NT", chapters: 24, api: "luke" },
-    { name: "Ewangelia Jana", testament: "NT", chapters: 21, api: "john" },
-    { name: "Dzieje Apostolskie", testament: "NT", chapters: 28, api: "acts" },
-    { name: "List do Rzymian", testament: "NT", chapters: 16, api: "romans" },
-    { name: "1 List do Koryntian", testament: "NT", chapters: 16, api: "1corinthians" },
-    { name: "2 List do Koryntian", testament: "NT", chapters: 13, api: "2corinthians" },
-    { name: "List do Galatów", testament: "NT", chapters: 6, api: "galatians" },
-    { name: "List do Efezjan", testament: "NT", chapters: 6, api: "ephesians" },
-    { name: "List do Filipian", testament: "NT", chapters: 4, api: "philippians" },
-    { name: "List do Kolosan", testament: "NT", chapters: 4, api: "colossians" },
-    { name: "1 List do Tesaloniczan", testament: "NT", chapters: 5, api: "1thessalonians" },
-    { name: "2 List do Tesaloniczan", testament: "NT", chapters: 3, api: "2thessalonians" },
-    { name: "1 List do Tymoteusza", testament: "NT", chapters: 6, api: "1timothy" },
-    { name: "2 List do Tymoteusza", testament: "NT", chapters: 4, api: "2timothy" },
-    { name: "List do Tytusa", testament: "NT", chapters: 3, api: "titus" },
-    { name: "List do Filemona", testament: "NT", chapters: 1, api: "philemon" },
-    { name: "List do Hebrajczyków", testament: "NT", chapters: 13, api: "hebrews" },
-    { name: "List Jakuba", testament: "NT", chapters: 5, api: "james" },
-    { name: "1 List Piotra", testament: "NT", chapters: 5, api: "1peter" },
-    { name: "2 List Piotra", testament: "NT", chapters: 3, api: "2peter" },
-    { name: "1 List Jana", testament: "NT", chapters: 5, api: "1john" },
-    { name: "2 List Jana", testament: "NT", chapters: 1, api: "2john" },
-    { name: "3 List Jana", testament: "NT", chapters: 1, api: "3john" },
-    { name: "List Judy", testament: "NT", chapters: 1, api: "jude" },
-    { name: "Apokalipsa św. Jana", testament: "NT", chapters: 22, api: "revelation" }
+    { name: "Księga Rodzaju", testament: "ST", chapters: 50, api: "Genesis" },
+    { name: "Księga Wyjścia", testament: "ST", chapters: 40, api: "Exodus" },
+    { name: "Księga Kapłańska", testament: "ST", chapters: 27, api: "Leviticus" },
+    { name: "Księga Liczb", testament: "ST", chapters: 36, api: "Numbers" },
+    { name: "Księga Powtórzonego Prawa", testament: "ST", chapters: 34, api: "Deuteronomy" },
+    { name: "Księga Jozuego", testament: "ST", chapters: 24, api: "Joshua" },
+    { name: "Księga Sędziów", testament: "ST", chapters: 21, api: "Judges" },
+    { name: "Księga Rut", testament: "ST", chapters: 4, api: "Ruth" },
+    { name: "1 Księga Samuela", testament: "ST", chapters: 31, api: "1 Samuel" },
+    { name: "2 Księga Samuela", testament: "ST", chapters: 24, api: "2 Samuel" },
+    { name: "1 Księga Królewska", testament: "ST", chapters: 22, api: "1 Kings" },
+    { name: "2 Księga Królewska", testament: "ST", chapters: 25, api: "2 Kings" },
+    { name: "1 Księga Kronik", testament: "ST", chapters: 29, api: "1 Chronicles" },
+    { name: "2 Księga Kronik", testament: "ST", chapters: 36, api: "2 Chronicles" },
+    { name: "Księga Ezdrasza", testament: "ST", chapters: 10, api: "Ezra" },
+    { name: "Księga Nehemiasza", testament: "ST", chapters: 13, api: "Nehemiah" },
+    { name: "Księga Tobiasza", testament: "ST", chapters: 14, api: "Tobit" },
+    { name: "Księga Judyty", testament: "ST", chapters: 16, api: "Judith" },
+    { name: "Księga Estery", testament: "ST", chapters: 16, api: "Esther" },
+    { name: "1 Księga Machabejska", testament: "ST", chapters: 16, api: "1 Maccabees" },
+    { name: "2 Księga Machabejska", testament: "ST", chapters: 15, api: "2 Maccabees" },
+    { name: "Księga Hioba", testament: "ST", chapters: 42, api: "Job" },
+    { name: "Księga Psalmów", testament: "ST", chapters: 150, api: "Psalms" },
+    { name: "Księga Przysłów", testament: "ST", chapters: 31, api: "Proverbs" },
+    { name: "Księga Koheleta", testament: "ST", chapters: 12, api: "Ecclesiastes" },
+    { name: "Pieśń nad Pieśniami", testament: "ST", chapters: 8, api: "Song of Songs" },
+    { name: "Księga Mądrości", testament: "ST", chapters: 19, api: "Wisdom" },
+    { name: "Mądrość Syracha", testament: "ST", chapters: 51, api: "Sirach" },
+    { name: "Księga Izajasza", testament: "ST", chapters: 66, api: "Isaiah" },
+    { name: "Księga Jeremiasza", testament: "ST", chapters: 52, api: "Jeremiah" },
+    { name: "Lamentacje Jeremiasza", testament: "ST", chapters: 5, api: "Lamentations" },
+    { name: "Księga Barucha", testament: "ST", chapters: 6, api: "Baruch" },
+    { name: "Księga Ezechiela", testament: "ST", chapters: 48, api: "Ezekiel" },
+    { name: "Księga Daniela", testament: "ST", chapters: 14, api: "Daniel" },
+    { name: "Księga Ozeasza", testament: "ST", chapters: 14, api: "Hosea" },
+    { name: "Księga Joela", testament: "ST", chapters: 4, api: "Joel" },
+    { name: "Księga Amosa", testament: "ST", chapters: 9, api: "Amos" },
+    { name: "Księga Abdiasza", testament: "ST", chapters: 1, api: "Obadiah" },
+    { name: "Księga Jonasza", testament: "ST", chapters: 4, api: "Jonah" },
+    { name: "Księga Micheasza", testament: "ST", chapters: 7, api: "Micah" },
+    { name: "Księga Nahuma", testament: "ST", chapters: 3, api: "Nahum" },
+    { name: "Księga Habakuka", testament: "ST", chapters: 3, api: "Habakkuk" },
+    { name: "Księga Sofoniasza", testament: "ST", chapters: 3, api: "Zephaniah" },
+    { name: "Księga Aggeusza", testament: "ST", chapters: 2, api: "Haggai" },
+    { name: "Księga Zachariasza", testament: "ST", chapters: 14, api: "Zechariah" },
+    { name: "Księga Malachiasza", testament: "ST", chapters: 3, api: "Malachi" },
+    { name: "Ewangelia Mateusza", testament: "NT", chapters: 28, api: "Matthew" },
+    { name: "Ewangelia Marka", testament: "NT", chapters: 16, api: "Mark" },
+    { name: "Ewangelia Łukasza", testament: "NT", chapters: 24, api: "Luke" },
+    { name: "Ewangelia Jana", testament: "NT", chapters: 21, api: "John" },
+    { name: "Dzieje Apostolskie", testament: "NT", chapters: 28, api: "Acts" },
+    { name: "List do Rzymian", testament: "NT", chapters: 16, api: "Romans" },
+    { name: "1 List do Koryntian", testament: "NT", chapters: 16, api: "1 Corinthians" },
+    { name: "2 List do Koryntian", testament: "NT", chapters: 13, api: "2 Corinthians" },
+    { name: "List do Galatów", testament: "NT", chapters: 6, api: "Galatians" },
+    { name: "List do Efezjan", testament: "NT", chapters: 6, api: "Ephesians" },
+    { name: "List do Filipian", testament: "NT", chapters: 4, api: "Philippians" },
+    { name: "List do Kolosan", testament: "NT", chapters: 4, api: "Colossians" },
+    { name: "1 List do Tesaloniczan", testament: "NT", chapters: 5, api: "1 Thessalonians" },
+    { name: "2 List do Tesaloniczan", testament: "NT", chapters: 3, api: "2 Thessalonians" },
+    { name: "1 List do Tymoteusza", testament: "NT", chapters: 6, api: "1 Timothy" },
+    { name: "2 List do Tymoteusza", testament: "NT", chapters: 4, api: "2 Timothy" },
+    { name: "List do Tytusa", testament: "NT", chapters: 3, api: "Titus" },
+    { name: "List do Filemona", testament: "NT", chapters: 1, api: "Philemon" },
+    { name: "List do Hebrajczyków", testament: "NT", chapters: 13, api: "Hebrews" },
+    { name: "List Jakuba", testament: "NT", chapters: 5, api: "James" },
+    { name: "1 List Piotra", testament: "NT", chapters: 5, api: "1 Peter" },
+    { name: "2 List Piotra", testament: "NT", chapters: 3, api: "2 Peter" },
+    { name: "1 List Jana", testament: "NT", chapters: 5, api: "1 John" },
+    { name: "2 List Jana", testament: "NT", chapters: 1, api: "2 John" },
+    { name: "3 List Jana", testament: "NT", chapters: 1, api: "3 John" },
+    { name: "List Judy", testament: "NT", chapters: 1, api: "Jude" },
+    { name: "Apokalipsa św. Jana", testament: "NT", chapters: 22, api: "Revelation" }
 ];
 
 /*
@@ -298,38 +298,56 @@ function finish() {
 
 /*
 ==================================================
-POBIERANIE TEKSTU Z API
+POBIERANIE TEKSTU Z API (bible-api.com)
 ==================================================
 */
 
 async function fetchChapterText(bookApi, chapterNumber) {
     try {
-        // Używamy darmowego API biblia.info.pl
-        const url = `https://biblia.info.pl/api/bible/ksiega/${bookApi}/rozdzial/${chapterNumber}`;
+        // Używamy bible-api.com - darmowe, bez klucza
+        const url = `https://bible-api.com/${encodeURIComponent(bookApi)}+${chapterNumber}?translation=kjv`;
+        
+        console.log('Pobieram z:', url);
         
         const response = await fetch(url);
         
         if (!response.ok) {
-            throw new Error('Nie znaleziono tekstu');
+            throw new Error(`HTTP Error: ${response.status}`);
         }
         
         const data = await response.json();
-        return data.verses || data;
+        
+        if (data.verses && data.verses.length > 0) {
+            return data.verses.map(verse => ({
+                number: verse.verse,
+                text: verse.text.trim()
+            }));
+        }
+        
+        return null;
         
     } catch (error) {
-        console.error('Błąd pobierania tekstu:', error);
+        console.error('Błąd pobierania z bible-api.com:', error);
         
-        // Fallback: spróbuj z innym API
+        // Spróbuj z drugim API
         try {
-            const fallbackUrl = `https://api.biblia.com/v1/bible/verse.js?passage=${bookApi}+${chapterNumber}`;
+            console.log('Próbuję z drugim API...');
+            
+            const fallbackUrl = `https://bible-api.com/${encodeURIComponent(bookApi)}%20${chapterNumber}`;
             const fallbackResponse = await fetch(fallbackUrl);
             
             if (fallbackResponse.ok) {
                 const fallbackData = await fallbackResponse.json();
-                return fallbackData;
+                
+                if (fallbackData.verses && fallbackData.verses.length > 0) {
+                    return fallbackData.verses.map(verse => ({
+                        number: verse.verse,
+                        text: verse.text.trim()
+                    }));
+                }
             }
         } catch (fallbackError) {
-            console.error('Błąd fallback:', fallbackError);
+            console.error('Błąd z drugim API:', fallbackError);
         }
         
         return null;
@@ -348,6 +366,7 @@ async function displayChapterText(chapter) {
     chapterTextContent.innerHTML = `
         <div style="text-align: center; padding: 30px; color: #766f64;">
             <p>⏳ Ładowanie tekstu...</p>
+            <p style="font-size: 14px;">Pobieranie z bible-api.com</p>
         </div>
     `;
     chapterTextDiv.classList.remove("hidden");
@@ -360,11 +379,11 @@ async function displayChapterText(chapter) {
         chapterTextContent.innerHTML = `
             <div style="text-align: center; padding: 30px; color: #766f64;">
                 <p>❌ Nie udało się pobrać tekstu.</p>
-                <p style="font-size: 14px;">Przepraszamy za utrudnienia. Spróbuj ponownie później.</p>
+                <p style="font-size: 14px;">Przepraszamy za utrudnienia.</p>
                 <p style="font-size: 14px; margin-top: 10px;">
-                    Możesz też sprawdzić ten rozdział na stronie: 
-                    <a href="https://biblia.info.pl/biblia/wujka/${chapter.api}/${chapter.chapter}" target="_blank">
-                        biblia.info.pl
+                    Możesz przeczytać ten rozdział tutaj: 
+                    <a href="https://biblia.deon.pl/rozdzial.php?id=1" target="_blank" style="color: #7d2020;">
+                        Biblia Deon
                     </a>
                 </p>
             </div>
@@ -373,14 +392,11 @@ async function displayChapterText(chapter) {
     }
     
     // Wyświetl wersety
-    const versesHTML = verses.map((verse, index) => {
-        const verseNumber = verse.number || (index + 1);
-        const verseText = verse.text || verse;
-        
+    const versesHTML = verses.map(verse => {
         return `
             <div class="verse">
-                <span class="verse-number">${verseNumber}</span>
-                <span class="verse-text">${verseText}</span>
+                <span class="verse-number">${verse.number}</span>
+                <span class="verse-text">${verse.text}</span>
             </div>
         `;
     }).join("");
@@ -405,3 +421,14 @@ URUCHOMIENIE
 */
 
 createPool();
+
+// Test API na starcie
+console.log('Testowanie API...');
+fetch('https://bible-api.com/John+3:16')
+    .then(response => response.json())
+    .then(data => {
+        console.log('✅ API działa! Przykład:', data.text);
+    })
+    .catch(error => {
+        console.log('❌ API nie działa:', error);
+    });
