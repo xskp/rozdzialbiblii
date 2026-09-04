@@ -5,12 +5,6 @@ Biblia Tysiąclecia - linki do biblia.deon.pl
 ==================================================
 */
 
-/*
-==================================================
-LISTA KSIĄG Z LINKAMI
-==================================================
-*/
-
 const books = [
     { name: "Księga Rodzaju", testament: "ST", chapters: 50, id: 1 },
     { name: "Księga Wyjścia", testament: "ST", chapters: 40, id: 2 },
