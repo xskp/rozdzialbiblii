@@ -361,17 +361,3 @@ function displayDailyReadings() {
         console.log('Link ustawiony na:', popeLink.href); // Do debugowania
     }
 }
-
-// Wywołaj TYLKO RAZ przy starcie
-displayDailyReadings();
-
-function updatePopeLink() {
-    const popeLink = document.getElementById('popeLink');
-    if (!popeLink) return;
-    
-    const vaticanUrl = getVaticanLink();
-    popeLink.href = vaticanUrl;
-}
-
-// Wywołaj
-updatePopeLink();
