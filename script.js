@@ -104,10 +104,8 @@ const startButton = document.getElementById("start");
 const stopButton = document.getElementById("stop");
 const resultBox = document.getElementById("result");
 const resultName = document.getElementById("resultName");
-const chapterTextDiv = document.getElementById("chapterText");
-const chapterTextTitle = document.getElementById("chapterTextTitle");
-const chapterTextContent = document.getElementById("chapterTextContent");
-const closeChapterButton = document.getElementById("closeChapter");
+const dailyDateElement = document.getElementById("dailyDate");
+const popeLinkElement = document.getElementById("popeLink");
 
 /*
 ==================================================
@@ -184,7 +182,6 @@ choiceButtons.forEach(button => {
         createPool();
 
         resultBox.classList.add("hidden");
-        chapterTextDiv.classList.add("hidden");
 
         statusElement.textContent = "ZAKRES WYBRANY";
 
@@ -212,7 +209,6 @@ startButton.addEventListener("click", function() {
     }
 
     resultBox.classList.add("hidden");
-    chapterTextDiv.classList.add("hidden");
 
     startButton.disabled = true;
     stopButton.disabled = false;
@@ -298,31 +294,11 @@ OTWIERANIE ROZDZIAŁU NA BIBLIA.DEON.PL
 */
 
 function openChapterOnDeon(chapter) {
-    // Używamy "Szczęśliwego trafu" Google - od razu otwiera pierwszy wynik
     const query = `${chapter.name} ${chapter.chapter} biblia.deon.pl`;
     const luckyUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}&btnI=Szczęśliwy+traf`;
     
-    // Otwórz pierwszy wynik od razu w nowej karcie
     window.open(luckyUrl, '_blank');
 }
-
-/*
-==================================================
-ZAMYKANIE TEKSTU ROZDZIAŁU
-==================================================
-*/
-
-closeChapterButton.addEventListener("click", function() {
-    chapterTextDiv.classList.add("hidden");
-});
-
-/*
-==================================================
-URUCHOMIENIE
-==================================================
-*/
-
-createPool();
 
 /*
 ==================================================
@@ -339,25 +315,30 @@ function getVaticanLink() {
 }
 
 function displayDailyReadings() {
-    const dateElement = document.getElementById('dailyDate');
-    const popeLink = document.getElementById('popeLink');
-    
-    if (!dateElement) return;
-    
     // Formatowanie daty po polsku
-    const today = new Date();
-    const dateString = today.toLocaleDateString('pl-PL', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
-    
-    dateElement.textContent = dateString;
+    if (dailyDateElement) {
+        const today = new Date();
+        const dateString = today.toLocaleDateString('pl-PL', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        dailyDateElement.textContent = dateString;
+    }
     
     // Ustaw link do Vatican News
-    if (popeLink) {
-        popeLink.href = getVaticanLink();
-        console.log('Link ustawiony na:', popeLink.href); // Do debugowania
+    if (popeLinkElement) {
+        popeLinkElement.href = getVaticanLink();
+        console.log('✅ Link ustawiony na:', popeLinkElement.href);
     }
 }
+
+/*
+==================================================
+URUCHOMIENIE
+==================================================
+*/
+
+createPool();
+displayDailyReadings(); // TO JEST KLUCZOWE - wywołanie funkcji!
