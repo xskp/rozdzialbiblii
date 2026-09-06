@@ -323,3 +323,67 @@ URUCHOMIENIE
 */
 
 createPool();
+
+/*
+==================================================
+CZYTANIA LITURGICZNE - VATICAN NEWS
+==================================================
+*/
+
+function getTodayString() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}/${month}/${day}`;
+}
+
+function getVaticanLink() {
+    const todayString = getTodayString();
+    return `https://www.vaticannews.va/en/word-of-the-day/${todayString}.html`;
+}
+
+function displayDailyReadings() {
+    const dateElement = document.getElementById('dailyDate');
+    const readingsElement = document.getElementById('dailyReadings');
+    
+    if (!dateElement || !readingsElement) return;
+    
+    // Formatowanie daty po polsku
+    const today = new Date();
+    const dateString = today.toLocaleDateString('pl-PL', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+    
+    dateElement.textContent = dateString;
+    
+    // Generuj link do Vatican News
+    const vaticanUrl = getVaticanLink();
+    
+    readingsElement.innerHTML = `
+        <div style="text-align: center; padding: 20px;">
+            <p style="font-size: 16px; margin-bottom: 15px;">
+                Czytania liturgiczne na dziś znajdziesz na:
+            </p>
+            <a href="${vaticanUrl}" target="_blank" 
+               style="display: inline-block; margin: 10px; padding: 14px 28px; 
+                      background: #7d2020; color: white; text-decoration: none; 
+                      border-radius: 8px; font-size: 16px; font-weight: bold;">
+                📖 Czytanie dnia - Vatican News
+            </a>
+            <br>
+            <a href="https://www.brewiarz.pl/czytania.php" target="_blank" 
+               style="display: inline-block; margin: 10px; padding: 12px 24px; 
+                      background: #eee8dc; color: #27231f; text-decoration: none; 
+                      border-radius: 8px; font-size: 14px;">
+                📜 Czytania po polsku - brewiarz.pl
+            </a>
+        </div>
+    `;
+}
+
+// Wywołaj przy starcie
+displayDailyReadings();
