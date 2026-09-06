@@ -21,9 +21,9 @@
             <h1>Wylosuj rozdział</h1>
 
             <p class="description">
-    Wybierz część Biblii i pozwól wytypować dla Ciebie rozdział.<br>
-    Po wylosowaniu otworzysz pełny tekst na stronie wydawnictwa.
-</p>
+                Wybierz część Biblii i pozwól wytypować dla Ciebie rozdział.<br>
+                Po wylosowaniu otworzysz pełny tekst na stronie wydawnictwa.
+            </p>
         </header>
 
 
@@ -84,73 +84,39 @@
 
         </section>
 
-        <!-- Kontener na informację o tekście -->
-        <div id="chapterText" class="chapter-text hidden">
-            <div class="chapter-text-header">
-                <h3 id="chapterTextTitle"></h3>
-                <button id="closeChapter" class="close-button">✕</button>
+
+        <!-- SEKCJA: LITURGIA DNIA -->
+        <section class="daily-readings">
+            <h2>📖 Liturgia dnia</h2>
+            <p class="daily-date" id="dailyDate"></p>
+            
+            <!-- Słowa Papieży -->
+            <div class="pope-words">
+                <h3>👨‍⚖️ Słowa Papieży</h3>
+                <p style="text-align: center; font-size: 14px; color: var(--muted);">
+                    Codzienne rozważania i nauczanie papieskie
+                </p>
+                <div style="text-align: center; margin-top: 15px;">
+                    <a href="#" id="popeLink" target="_blank" 
+                       style="display: inline-block; padding: 14px 28px; 
+                              background: #7d2020; color: white; text-decoration: none; 
+                              border-radius: 8px; font-size: 16px; font-weight: bold;">
+                        ✨ Słowo na dziś
+                    </a>
+                </div>
             </div>
-            <div id="chapterTextContent" class="chapter-text-content">
-                <!-- Tutaj pojawi się informacja -->
-            </div>
-<!-- SEKCJA: CZYTANIE DNIA -->
-<section class="daily-readings">
-    <h2>📖 Liturgia dnia</h2>
-    <p class="daily-date" id="dailyDate"></p>
-    
-    <!-- Słowa Papieży -->
-    <div class="pope-words">
-        <h3>👨‍⚖️ Słowa Papieży</h3>
-        <p style="text-align: center; font-size: 14px; color: var(--muted);">
-            Codzienne rozważania i nauczanie papieskie
-        </p>
-        <div style="text-align: center; margin-top: 15px;">
-            <a href="#" id="popeLink" target="_blank" 
-               style="display: inline-block; padding: 14px 28px; 
-                      background: #7d2020; color: white; text-decoration: none; 
-                      border-radius: 8px; font-size: 16px; font-weight: bold;">
-                  Słowo na dziś
-            </a>
-        </div>
-    </div>
-</section>
-    
-    <!-- Link do pełnych czytań -->
-    <div class="readings-links">
-        <a href="https://www.brewiarz.pl/czytania.php" target="_blank" class="reading-link">
-            📜 Pełne czytania na brewiarz.pl
-        </a>
-        <a href="https://www.paulus.org.pl/read.php" target="_blank" class="reading-link">
-            ✝️ Ewangelia z komentarzem
-        </a>
-    </div>
-    
-<!-- W sekcji daily-readings, po readings-list -->
-<div class="pope-words">
-    <h3>👨‍⚖️ Słowa Papieża Franciszka</h3>
-    <p style="text-align: center;">
-        Codzienne rozważania i słowa Ojca Świętego
-    </p>
-    <div style="text-align: center; margin-top: 15px;">
-        <a href="#" id="popeLink" target="_blank" 
-           style="display: inline-block; padding: 14px 28px; 
-                  background: #7d2020; color: white; text-decoration: none; 
-                  border-radius: 8px; font-size: 16px; font-weight: bold;">
-            ✨ Słowo na dziś
-        </a>
-    </div>
-</div>
-</section>
+        </section>
+
 
         <footer>
-             <p>Biblia Tysiąclecia • Projekt darmowy</p>
-    <p style="font-size: 10px; color: #999;">
-        Tekst Biblii pochodzi z serwisu 
-        <a href="https://biblia.deon.pl" target="_blank" style="color: #999;">
-            biblia.deon.pl
-        </a>
-        (Wydawnictwo Pallottinum)
-    </p>
+            <p>Biblia Tysiąclecia • Projekt darmowy</p>
+            <p style="font-size: 10px; color: #999;">
+                Tekst Biblii pochodzi z serwisu 
+                <a href="https://biblia.deon.pl" target="_blank" style="color: #999;">
+                    biblia.deon.pl
+                </a>
+                (Wydawnictwo Pallottinum)
+            </p>
         </footer>
 
     </main>
