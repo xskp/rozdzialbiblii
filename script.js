@@ -387,3 +387,14 @@ function displayDailyReadings() {
 
 // Wywołaj przy starcie
 displayDailyReadings();
+
+function updatePopeLink() {
+    const popeLink = document.getElementById('popeLink');
+    if (!popeLink) return;
+    
+    const vaticanUrl = getVaticanLink();
+    popeLink.href = vaticanUrl;
+}
+
+// Wywołaj
+updatePopeLink();
