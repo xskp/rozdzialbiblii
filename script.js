@@ -341,4 +341,6 @@ URUCHOMIENIE
 */
 
 createPool();
-displayDailyReadings(); // TO JEST KLUCZOWE - wywołanie funkcji!
+window.onload = function() {
+    displayDailyReadings();
+};
