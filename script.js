@@ -358,10 +358,11 @@ function displayDailyReadings() {
     // Ustaw link do Vatican News
     if (popeLink) {
         popeLink.href = getVaticanLink();
+        console.log('Link ustawiony na:', popeLink.href); // Do debugowania
     }
 }
 
-// Wywołaj przy starcie
+// Wywołaj TYLKO RAZ przy starcie
 displayDailyReadings();
 
 function updatePopeLink() {
