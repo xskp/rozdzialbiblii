@@ -534,3 +534,140 @@ footer {
         font-size: 11px;
     }
 }
+/* =========================
+   CZYTANIE DNIA
+   ========================= */
+
+.daily-readings {
+    margin-top: 30px;
+    padding: 25px;
+    background: #fffdf8;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(60, 45, 30, 0.05);
+}
+
+.daily-readings h2 {
+    margin: 0 0 5px;
+    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.daily-date {
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0 0 20px;
+    font-style: italic;
+}
+
+.readings-list {
+    margin-bottom: 20px;
+}
+
+.reading-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    background: white;
+    border-left: 3px solid var(--red);
+    border-radius: 8px;
+}
+
+.reading-type {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.reading-text {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.reading-reference {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.readings-links {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.reading-link {
+    padding: 10px 15px;
+    background: var(--button-light);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.reading-link:hover {
+    background: var(--red);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.pope-words {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.pope-words h3 {
+    margin: 0 0 15px;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.pope-words blockquote {
+    margin: 0;
+    padding: 20px;
+    background: #f9f5f0;
+    border-radius: 12px;
+    font-style: italic;
+}
+
+.pope-words blockquote p {
+    margin: 0 0 10px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.pope-words cite {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: normal;
+}
+
+.pope-words a {
+    color: var(--red);
+    text-decoration: none;
+}
+
+.pope-words a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 560px) {
+    .daily-readings {
+        padding: 20px;
+    }
+    
+    .readings-links {
+        flex-direction: column;
+    }
+}
